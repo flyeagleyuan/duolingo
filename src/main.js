@@ -2,7 +2,7 @@
  * @Author: flyeageleyuan flyeageleyuan@163.com
  * @Date: 2024-07-05 00:26:42
  * @LastEditors: flyeageleyuan flyeageleyuan@163.com
- * @LastEditTime: 2024-07-07 00:45:28
+ * @LastEditTime: 2024-07-13 22:37:26
  * @FilePath: \duolingo\src\main.js
  * @Description: 
  * 
@@ -12,6 +12,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './css/reset.scss'
 import 'vant/es/toast/style'
+import 'vant/es/notify/style'
 
 
 function setRem() {

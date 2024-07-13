@@ -2,7 +2,7 @@
  * @Author: flyeageleyuan flyeageleyuan@163.com
  * @Date: 2024-07-06 10:29:46
  * @LastEditors: flyeageleyuan flyeageleyuan@163.com
- * @LastEditTime: 2024-07-10 00:18:55
+ * @LastEditTime: 2024-07-11 23:34:17
  * @FilePath: \duolingo\vite.config.ts
  * @Description: 
  * 
@@ -43,18 +43,15 @@ export default defineConfig(()=>{
     server: {
       host: '0.0.0.0',
       port: 8000,
-      server: {
-        proxy: 
-        {
-          '/account': {
-            target: 'http://107.151.247.161:9000',
-            changeOrigin: true,
-            // rewrite: (path) => path.replace(/^\/account/, '/account'),
-            }
-           
-
+      proxy: 
+      {
+        '/account': {
+          // target: 'http://127.0.0.1:4523/m1/4713571-0-default',
+          target: 'http://107.151.247.161:9000',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/account/, 'account'),
           }
-        
+      
       },
       open: true
     },

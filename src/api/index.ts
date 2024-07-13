@@ -2,7 +2,7 @@
  * @Author: flyeageleyuan flyeageleyuan@163.com
  * @Date: 2024-07-10 00:08:27
  * @LastEditors: flyeageleyuan flyeageleyuan@163.com
- * @LastEditTime: 2024-07-10 00:10:53
+ * @LastEditTime: 2024-07-10 23:08:57
  * @FilePath: \duolingo\src\api\index.ts
  * @Description: 
  * 
@@ -11,5 +11,5 @@
 import api from '../utils/request/index'
 
 export const fetchVerify = (params) => {
-  return api.post('', params)
+  return api.post('/account/verify', params)
 }

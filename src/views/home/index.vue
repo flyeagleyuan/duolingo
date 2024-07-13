@@ -32,7 +32,8 @@
 <script setup lang="ts">
 import { defineComponent,ref } from 'vue';
 import bird from '@/assets/images/bird.svg'
-import {fetchVerify} from '../../api/index'
+import { fetchVerify } from '../../api/index'
+import { showNotify } from 'vant';
 
 defineComponent({
   name:'HomeCom'
@@ -46,8 +47,13 @@ const handleActive = async () => {
     email: email.value,
     secret: activeCode.value
   }
-  const data = await fetchVerify(params)
+  const {data,code,message} = await fetchVerify(params)
   console.log('data', data);
+  if (code === 0) {
+    showNotify({ type: 'success', message: '激活成功' });
+  } else {
+    showNotify({type:'danger',message:message})
+  }
   
 }
 
