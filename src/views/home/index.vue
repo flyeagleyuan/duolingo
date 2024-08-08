@@ -47,13 +47,23 @@ const handleActive = async () => {
     email: email.value,
     secret: activeCode.value
   }
-  const {data,code,message} = await fetchVerify(params)
+  try {
+    const {data,code,msg} = await fetchVerify(params)
   console.log('data', data);
-  if (code === 0) {
-    showNotify({ type: 'success', message: '激活成功' });
+    if (code === 0) {
+      if (data) {
+      
+        showNotify({ type: 'success', message: '激活成功' });
+    }
   } else {
     showNotify({type:'danger',message:message})
   }
+    
+  } catch (error) {
+    showNotify({type:'danger',message:message})
+    
+  }
+  
   
 }
 

@@ -53,8 +53,8 @@ export default {
   get(url, params = {}) {
     return instance.get(url, { params })
   },
-  post(url, data = {}) {
-    return instance.post(url, data)
+  post(url,params, data = {}) {
+    return instance.post(url, params, data)
   },
   put(url, data = {}) {
     return instance.put(url, data)
