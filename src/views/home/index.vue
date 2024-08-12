@@ -25,7 +25,7 @@
       </van-cell-group>
 
     </div>
-    <van-button @click="handleActive" class="active-btn" color="#58cc02">激活会员</van-button>
+    <van-button @click="handleActive" :loading="isLoading" class="active-btn" :disabled="!email||!activeCode" color="#58cc02">激活会员</van-button>
   </div>
 </template>
 
@@ -41,15 +41,19 @@ defineComponent({
 
 const email = ref('')
 const activeCode = ref('')
+const isLoading = ref(false)
 
 const handleActive = async () => {
+  isLoading.value = true
   const params = {
     email: email.value,
     secret: activeCode.value
   }
   try {
     const {data,code,msg} = await fetchVerify(params)
-  console.log('data', data);
+    console.log('data', data);
+    isLoading.value = false
+  
     if (code === 0) {
       if (data) {
       

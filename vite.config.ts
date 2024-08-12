@@ -2,7 +2,7 @@
  * @Author: flyeageleyuan flyeageleyuan@163.com
  * @Date: 2024-07-06 10:29:46
  * @LastEditors: flyeageleyuan flyeageleyuan@163.com
- * @LastEditTime: 2024-08-08 22:45:45
+ * @LastEditTime: 2024-08-13 00:18:14
  * @FilePath: \duolingo\vite.config.ts
  * @Description: 
  * 
@@ -47,7 +47,7 @@ export default defineConfig(()=>{
       {
         '/exchange': {
           // target: 'http://127.0.0.1:4523/m1/4713571-0-default',
-          target: 'http://duolingosuper.cn',
+          target: 'https://duolingosuper.cn',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/exchange/, '/exchange'),
           }
