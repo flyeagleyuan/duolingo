@@ -2,7 +2,7 @@
  * @Author: flyeageleyuan flyeageleyuan@163.com
  * @Date: 2024-07-09 23:39:32
  * @LastEditors: flyeageleyuan flyeageleyuan@163.com
- * @LastEditTime: 2024-07-11 23:34:44
+ * @LastEditTime: 2024-08-13 00:52:53
  * @FilePath: \duolingo\src\utils\request\index.ts
  * @Description: 
  * 
@@ -11,7 +11,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: '/', // 设置基础 URL
+  baseURL: 'https://duolingosuper.cn/', // 设置基础 URL
   timeout: 10000, // 设置超时时间
   headers: {
     'Content-Type': 'application/json' // 设置默认请求头
