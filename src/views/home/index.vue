@@ -45,9 +45,10 @@ const isLoading = ref(false)
 
 const handleActive = async () => {
   isLoading.value = true
+  //change params
   const params = {
     email: email.value,
-    secret: activeCode.value
+    code: activeCode.value
   }
   try {
     const {data,code,msg} = await fetchVerify(params)
@@ -60,11 +61,11 @@ const handleActive = async () => {
         showNotify({ type: 'success', message: '激活成功' });
     }
   } else {
-    showNotify({type:'danger',message:message})
+    showNotify({type:'danger',message:msg})
   }
     
   } catch (error) {
-    showNotify({type:'danger',message:message})
+    showNotify({type:'danger',message:error})
     
   }
   
