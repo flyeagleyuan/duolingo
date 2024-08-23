@@ -25,7 +25,14 @@
       </van-cell-group>
 
     </div>
-    <van-button @click="handleActive" :loading="isLoading" class="active-btn" :disabled="!email||!activeCode" color="#58cc02">激活会员</van-button>
+    <van-button 
+      @click="handleActive" 
+      :loading="isLoading" 
+      class="active-btn" 
+      :disabled="!email||!activeCode||isLoading" 
+      color="#58cc02">
+        激活会员
+    </van-button>
   </div>
 </template>
 
@@ -55,17 +62,16 @@ const handleActive = async () => {
     console.log('data', data);
     isLoading.value = false
   
-    if (code === 0) {
-      if (data) {
+    if (code === 1) {
+        showNotify({ type: 'success', message: '激活成功', duration:5000 });
+    } else {
+        showNotify({ type: 'danger', message: msg , duration:5000})
       
-        showNotify({ type: 'success', message: '激活成功' });
     }
-  } else {
-    showNotify({type:'danger',message:msg})
-  }
     
   } catch (error) {
-    showNotify({type:'danger',message:error})
+    showNotify({ type: 'danger', message: error, duration:5000 })
+    isLoading.value = false
     
   }
   
@@ -76,6 +82,9 @@ const handleActive = async () => {
 
 <style lang="scss" scoped>
 .app-container{
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
   padding: 24px;
   display: flex;
   justify-content: center;
@@ -114,5 +123,14 @@ const handleActive = async () => {
   font-size: 20px;
   border-radius: 8px;
 }
+
+</style>
+
+<style lang="scss">
+#app{
+  width: 100%;
+  height: 100%;
+}
+
 
 </style>
