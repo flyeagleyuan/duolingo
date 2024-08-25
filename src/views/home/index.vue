@@ -40,7 +40,7 @@
 import { defineComponent,ref } from 'vue';
 import bird from '@/assets/images/bird.svg'
 import { fetchVerify } from '../../api/index'
-import { showNotify } from 'vant';
+import { showNotify, showToast, showSuccessToast } from 'vant';
 
 defineComponent({
   name:'HomeCom'
@@ -63,14 +63,48 @@ const handleActive = async () => {
     isLoading.value = false
   
     if (code === 1) {
-        showNotify({ type: 'success', message: '激活成功', duration:5000 });
+      showToast({
+        type: 'success',
+        message: '激活成功',
+        duration: 5000
+      })
+      showNotify(
+        {
+          type: 'success',
+          message: '激活成功',
+          position: 'bottom',
+          duration: 5000
+        }
+      );
     } else {
-        showNotify({ type: 'danger', message: msg , duration:5000})
-      
+      showNotify(
+        {
+          type: 'danger',
+          message: msg,
+          position: 'bottom',
+          duration: 5000
+        }
+      )
+      showToast({
+        type: 'fail',
+        message: '激活失败',
+        duration: 5000
+      })
     }
     
   } catch (error) {
-    showNotify({ type: 'danger', message: error, duration:5000 })
+    showToast({
+      type: 'fail',
+      message: '激活失败',
+      duration: 5000
+    })
+    showNotify({
+      type: 'danger',
+      message: error,
+      position: 'bottom',
+      duration: 5000
+    })
+    
     isLoading.value = false
     
   }
